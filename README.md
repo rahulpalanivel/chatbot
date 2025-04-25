@@ -5,6 +5,8 @@ This project is a simple, intelligent chatbot that helps users interactively que
 ---
 ## Demo
 
+https://github.com/user-attachments/assets/90748730-017b-40f0-8f77-0a963751fa56
+
 ---
 ## 📌 Features
 - Upload insurance policy PDFs.
