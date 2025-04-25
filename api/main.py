@@ -13,7 +13,6 @@ logging.basicConfig(filename='app.log', level=logging.INFO)
 
 # Initialize FastAPI app
 app = FastAPI()
-app.run_server()
 
 @app.post("/chat", response_model=QueryResponse)
 def chat(query_input: QueryInput):
