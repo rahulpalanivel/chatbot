@@ -1,14 +1,14 @@
 # 🧾 Insurance Chatbot - README
 
-This project is a simple, intelligent chatbot that helps users interactively query insurance policy details extracted from PDF documents. Built using **Python**, **LangChain**, **OpenAI**, **FAISS**, and **Streamlit**, this chatbot utilizes LLMs to understand user questions and provide accurate, context-aware answers.
+This project is a simple, intelligent chatbot that helps users interactively query insurance policy details extracted from PDF documents. Built using **Python**, **LangChain**, **Gemini**, **Mistral**, and **Streamlit**, this chatbot utilizes LLMs to understand user questions and provide accurate, context-related answers
 
 ---
 
 ## 📌 Features
 - Upload insurance policy PDFs.
 - Ask natural language questions about the policy.
-- Retrieves relevant policy info using a vector database (FAISS).
-- Uses OpenAI LLMs for response generation.
+- Retrieves relevant policy info using a vector database (qdrant).
+- Uses Gemini LLMs for response generation.
 - Web-based UI using Streamlit.
 - Fallback detection for human escalation.
 
@@ -20,17 +20,29 @@ This project is a simple, intelligent chatbot that helps users interactively que
 - Install Python (>=3.10): [https://www.python.org/](https://www.python.org/)
 - Install the requirements from requirements.txt
 
-### 2. **Prepare the PDF Knowledge Base**
-- Extract text using `PyMuPDF`.
-- Split the text into manageable chunks.
-- Create embeddings using OpenAI's API.
-- Store these embeddings in FAISS for retrieval.
+### 2. **Models**
+- Create Gemini API key
+- Create Mistral API key
+- Create sqlite3 cloud API key.
+- Create qdrant API key.
 
 ---
 
-## 🚀 Deployment Options (Free)
-- **Streamlit Cloud**: [https://streamlit.io/cloud](https://streamlit.io/cloud)
-- **Hugging Face Spaces**: For showcasing via Streamlit
+### 3. **Run Application**
+- Clone the project from github
+- Go to app directory and run the command: streamlit run streamlit_app.py
+- Go to api directory and run the command: uvicorn main:app --reload
+
+---
+
+## 📄 Working
+- When PDF's are uploaded they are chunked into paragraphs and passed to the mistral embedding model.
+- The embedder then creates vector embeddings for the chunks, which are then stored in qdrant (vector database).
+- When user inputs a query, the query is also converted to a vector embedding.
+- A similarity search is performed to retrieve documents from the vector db that are semantically similar to the query.
+- Then the query along with the retrieved document is sent to Gemini LLM, which then generates an appropriate response to the query.
+- This is then stored as chat history in a sqlite db.
+- When another query is passed, it then uses the chat history also to generate further responses.
 
 
 ---
@@ -38,10 +50,10 @@ This project is a simple, intelligent chatbot that helps users interactively que
 ## 📚 Free Tools Used
 - **Python + LangChain** for backend logic
 - **Streamlit** for frontend
-- **OpenAI** (Free API tier for GPT-3.5)
-- **FAISS** for semantic search
-- **PyMuPDF** for PDF reading
-- **OBS Studio** / **Loom** for demo
+- **Gemini** (Free API tier) LLM model
+- **Mistral** (Free API tier) Embedding model
+- **qdrant** for vectordb
+- **sqlite3** for chat history
 
 ---
 
