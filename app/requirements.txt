@@ -1,0 +1,11 @@
+langchain
+langchain-google-genai
+langchain_mistralai
+langchain-core
+langchain_community
+langchain_chroma
+pypdf
+python-multipart
+fastapi
+uvicorn
+streamlit
