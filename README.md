@@ -3,11 +3,6 @@
 This project is a simple, intelligent chatbot that helps users interactively query insurance policy details extracted from PDF documents. Built using **Python**, **LangChain**, **Gemini**, **Mistral**, and **Streamlit**, this chatbot utilizes LLMs to understand user questions and provide accurate, context-related answers
 
 ---
-## Demo
-
-https://github.com/user-attachments/assets/90748730-017b-40f0-8f77-0a963751fa56
-
----
 ## 📌 Features
 - Upload insurance policy PDFs.
 - Ask natural language questions about the policy.
